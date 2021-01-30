@@ -1,0 +1,20 @@
+{
+  "name": "compara-test",
+  "version": "1.0.0",
+  "description": "ComparaOnline Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "compara-test"
+  },
+  "author": "Ezequiel Esnaola",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0"
+  }
+}
