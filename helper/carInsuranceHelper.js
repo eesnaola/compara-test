@@ -1,32 +1,33 @@
 module.exports = {
     updatePrice(carInsurance) {
         carInsurance.products.map((product) => {
-            switch(product.name){
+            switch(product.name) {
                 case 'Full Coverage':
                     this.setFullCoveragePrice(product);
                     this.checkMaxPrice(product);
                     this.checkMinPrice(product);
-                    this.decreaseSellIn(product);
+                    product.sellIn--;
                     break;
                 case 'Special Full Coverage':
                     this.setSpecialFullCoveragePrice(product);
                     this.checkMaxPrice(product);
                     this.checkMinPrice(product);
-                    this.decreaseSellIn(product);
+                    product.sellIn--;
                     break;
                 case 'Super Sale':
                     this.setSupersalePrice(product);
                     this.checkMaxPrice(product);
                     this.checkMinPrice(product);
-                    this.decreaseSellIn(product);
+                    product.sellIn--;
                     break;
                 case 'Mega Coverage':
+                    this.checkMinPrice(product);
                     break;
                 default:
                     this.setDefaultPrice(product);
                     this.checkMaxPrice(product);
                     this.checkMinPrice(product);
-                    this.decreaseSellIn(product);
+                    product.sellIn--;
                     break;
             }
         });
@@ -38,7 +39,7 @@ module.exports = {
         if (product.sellIn <= 0) {
             increase = 2;
         }
-        product.price = product.price + increase;
+        product.price += increase;
     },
 
     setSpecialFullCoveragePrice(product) {
@@ -49,8 +50,7 @@ module.exports = {
         if (product.sellIn <= 5) {
             increase = 3;
         }
-        product.price = product.price + increase;
-
+        product.price += increase;
         if (product.sellIn <= 0) {
             product.price = 0;
         }
@@ -61,7 +61,7 @@ module.exports = {
         if (product.sellIn <= 0) {
             decrease = 4;
         }
-        product.price = product.price - decrease;
+        product.price -= decrease;
     },
 
     setDefaultPrice(product) {
@@ -69,16 +69,12 @@ module.exports = {
         if (product.sellIn <= 0) {
             decrease = 2;
         }
-        product.price = product.price - decrease;
-    },
-
-    decreaseSellIn(product) {
-        product.sellIn--;
+        product.price -= decrease;
     },
 
     checkMaxPrice(product) {
         if (product.price > 50) {
-            product.price = 50
+            product.price = 50;
         }
     },
 
