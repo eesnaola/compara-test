@@ -20,8 +20,16 @@ module.exports = {
                     this.checkMinPrice(product);
                     this.decreaseSellIn(product);
                     break;
+                case 'Mega Coverage':
+                    break;
+                default:
+                    this.setDefaultPrice(product);
+                    this.checkMaxPrice(product);
+                    this.checkMinPrice(product);
+                    this.decreaseSellIn(product);
+                    break;
             }
-        })
+        });
         return carInsurance;
     },
 
@@ -52,6 +60,14 @@ module.exports = {
         let decrease = 2;
         if (product.sellIn <= 0) {
             decrease = 4;
+        }
+        product.price = product.price - decrease;
+    },
+
+    setDefaultPrice(product) {
+        let decrease = 1;
+        if (product.sellIn <= 0) {
+            decrease = 2;
         }
         product.price = product.price - decrease;
     },
