@@ -4,11 +4,12 @@
   "description": "ComparaOnline Test",
   "main": "index.js",
   "scripts": {
-    "test": "nyc mocha --exit"
+    "test": "nyc mocha --exit",
+    "after-30-days": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "compara-test"
+    "url": "https://github.com/eesnaola/compara-test"
   },
   "author": "Ezequiel Esnaola",
   "license": "MIT",
