@@ -1,28 +1,30 @@
-# Compara Online Coding Test
+# ComparaOnline Coding Test
 
-### Prerequisites
+## Prerequisites
 
 ```
 node v14
 ```
 
-### Installing
+## Installing
 
 To install the project you should execute the next commands:
 
-### Install dependencies
+#### Install dependencies
 
 ```
 npm install
 ```
 
-## Running the tests and display the coverage report
+## Tests
+
+#### Running the tests and display the coverage report
 
 ```
 npm run test
 ```
 
-### Execute after-30-days command
+#### Execute after-30-days command
 
 ```
 npm run after-30-days
